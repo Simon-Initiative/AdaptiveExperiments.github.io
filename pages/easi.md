@@ -1,12 +1,12 @@
 ---
-layout: page
-title: "EASI"
+layout: page-fullwidth
+title: "Experiments-as-a-Service (EASI)"
 permalink: /easi/
 header: true
 ---
 
 <!-- page content -->
-## Experiments-as-a-Service (EASI)
+## EASI
 
 Adaptive Experiments builds Experiments‑As‑a‑Service Infrastructure (EASI) to make real‑world educational field experiments simple, reproducible, and effective. Lower the barrier for teachers and researchers to test instructional designs, discover what improves learning, and deploy improvements at scale.
 

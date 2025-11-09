@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Contact"
+header: true
 meta_title: "Questions?"
 teaser: "Get in touch with us"
 permalink: "/contact/"

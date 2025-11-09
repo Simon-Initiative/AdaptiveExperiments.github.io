@@ -21,7 +21,7 @@
 
 #toc ul,
 #toc ul ul,
-#toc ul ul ul, {
+#toc ul ul ul {
     list-style: none;
     margin-left: 30px;
 }
@@ -43,7 +43,7 @@
 
 
 
-/* Shadows
+ /* Shadows
 ------------------------------------------------------------------- */
 
 .shadow-no      {text-shadow: rgba(0, 0, 0, 0) 0 0 0;}
@@ -52,7 +52,7 @@
 
 
 
-/* Alerts
+ /* Alerts
 ------------------------------------------------------------------- */
 
 .alert-box {
@@ -159,4 +159,80 @@ img.lazy {
     padding-top: 50px;
     margin-top: -50px;
   }
+}
+
+/* Ensure top-level menu items and their backgrounds are plain white */
+.top-bar {
+  background-color: #ffffff !important; /* nav bar background */
+  border-bottom: 1px solid rgba(15,23,42,0.06);
+}
+
+/* Make each top-level menu item sit on white (Home, About, Use Cases, Publications, Contact) */
+.top-bar .left li > a,
+.top-bar .right li > a,
+.top-bar .has-dropdown > a {
+  background-color: #ffffff !important; /* keep item background white */
+  color: #0f172a !important;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+}
+
+/* Keep dropdown container and dropdown items white by default */
+.top-bar .dropdown,
+.top-bar .has-dropdown .dropdown {
+  background: #ffffff !important;
+  border: 1px solid rgba(15,23,42,0.06) !important;
+}
+
+/* Hover / active state (still uses site accent) */
+.top-bar .left li > a:hover,
+.top-bar .right li > a:hover,
+.top-bar .has-dropdown > a:hover,
+.top-bar .dropdown li a:hover,
+.top-bar li.active > a {
+  background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%) !important;
+  color: #ffffff !important;
+}
+
+/* Mobile: ensure panel background remains white */
+@media (max-width: 720px) {
+  .top-bar .top-bar-section { background: #ffffff !important; }
+  .top-bar .left li a,
+  .top-bar .right li a { display: block; padding: 0.7rem 1rem; background: #ffffff !important; }
+}
+
+/* Final safety: remove any green background utility classes used by Foundation */
+.top-bar .dropdown .success,
+.top-bar .dropdown .alert,
+.top-bar .dropdown .label {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+/* Small visual polish */
+.top-bar .left li a:hover,
+.top-bar .right li a:hover { transform: translateY(-1px); }
+
+/* Remove rounded corners from top-level nav items and dropdowns */
+.top-bar .left li > a,
+.top-bar .right li > a,
+.top-bar .has-dropdown > a,
+.top-bar .dropdown li a {
+  border-radius: 0 !important;
+}
+
+/* Ensure dropdown container is not rounded */
+.top-bar .dropdown,
+.top-bar .has-dropdown .dropdown {
+  border-radius: 0 !important;
+}
+
+/* Remove rounded corners on hover/active states */
+.top-bar .left li > a:hover,
+.top-bar .right li > a:hover,
+.top-bar .has-dropdown > a:hover,
+.top-bar .dropdown li a:hover,
+.top-bar li.active > a,
+.top-bar li.has-dropdown.active > a {
+  border-radius: 0 !important;
 }

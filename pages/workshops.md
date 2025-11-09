@@ -1,10 +1,11 @@
----
+--- 
 layout: page
-show_meta: false
-title: "SIP Workshops"
-#subheadline: "Developing the adaptive experiment templates for the researchers"
-teaser: ""
-header:
+title: "Workshops"
 permalink: "/workshops/"
+header: true
 ---
-## This page is coming soon ....
+
+<!-- Redirect to external workshop page -->
+<meta http-equiv="refresh" content="0; url=https://sites.google.com/carnegielearning.com/pele-2025/home" />
+<p>If you are not redirected automatically, follow this <a href="https://sites.google.com/carnegielearning.com/pele-2025/home">link to the PELE 2025 workshop page</a>.</p>
+<!-- keep header/footer consistent -->

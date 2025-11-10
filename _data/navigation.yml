@@ -6,46 +6,28 @@
   url: "/about/"
   side: left
   dropdown:
-   - title: "Project Overview"
-     url: "/overview/"
+   - title: "Research Support"
+     url: "/support/"  
    - title: "Team"
      url: "/team/"
-   - title: "Adaptive Experiment"
-     url: "/adaptive/"
 
-- title: "Conferences & Events"
+- title: "Use Cases"
   url: "/"
   side: left
   dropdown:
-    - title: "SIPS Workshop"
-      url: "/workshops/"
-    - title: "Participate"
-      url: "/participate/"
-   
-
-- title: "Documentation"
-  url: "/"
-  side: left
-  dropdown:
+    - title: "Mathia"
+      url: 'https://www.carnegielearning.com/solutions/math/mathia'
+    - title: "UpGrade"
+      url: 'https://www.upgradeplatform.org'
+    - title: "OLI"
+      url: 'https://oli.cmu.edu'  
     - title: "MOOClet"
       url: "/mooclet/"
-    - title: "UpGrade"
-      url: "/upgrade/"
-    - title: "OLI"
-      url: "/oli/"
 
-
-- title: Experiment
+- title: Publications
   url: "/overview/"
   side: left
-  dropdown:
-    - title: "A/B Testing"
-      url: "/mooclet/"
-    - title: "Contextual Exp"
-      url: "/mooclet/"
-    - title: "Non-Contextual"
-      url: "/mooclet/"
-
+  
 - title: "Contact"
   url: "/contact/"
   side: left

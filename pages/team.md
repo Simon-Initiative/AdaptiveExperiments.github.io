@@ -53,7 +53,7 @@ header: true
       <ul class="leaders-list">
 
         <li class="person">
-          <img src="{{ '/images/stock-images/person-placeholder.png' | relative_url }}" alt="Jeffrey Carver" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
+          <img src="{{ '/images/stock-images/Carver.jpg' | relative_url }}" alt="Jeffrey Carver" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
           <div class="person-meta">
             <div class="person-name"><a href="https://carver.cs.ua.edu/">Jeffrey Carver</a></div>
             <div class="person-role">University of Alabama</div>
@@ -61,7 +61,7 @@ header: true
         </li>
 
         <li class="person">
-          <img src="{{ '/images/stock-images/person-placeholder.png' | relative_url }}" alt="Joseph Jay Williams" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
+          <img src="{{ '/images/stock-images/joseph.png' | relative_url }}" alt="Joseph Jay Williams" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
           <div class="person-meta">
             <div class="person-name"><a href="https://www.josephjaywilliams.com/">Joseph Jay Williams</a></div>
             <div class="person-role">University of Toronto</div>
@@ -69,7 +69,7 @@ header: true
         </li>
 
         <li class="person">
-          <img src="{{ '/images/stock-images/person-placeholder.png' | relative_url }}" alt="John Stamper" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
+          <img src="{{ '/images/stock-images/john-stamper.jpg' | relative_url }}" alt="John Stamper" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
           <div class="person-meta">
             <div class="person-name"><a href="https://www.hcii.cmu.edu/people/john-stamper">John Stamper</a></div>
             <div class="person-role">Carnegie Mellon University</div>
@@ -77,7 +77,7 @@ header: true
         </li>
 
         <li class="person">
-          <img src="{{ '/images/stock-images/person-placeholder.png' | relative_url }}" alt="Norman Bier" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
+          <img src="{{ '/images/stock-images/bier.jpg' | relative_url }}" alt="Norman Bier" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
           <div class="person-meta">
             <div class="person-name"><a href="https://oli.cmu.edu/norman-bier/">Norman Bier</a></div>
             <div class="person-role">Carnegie Mellon University</div>
@@ -85,7 +85,7 @@ header: true
         </li>
 
         <li class="person">
-          <img src="{{ '/images/stock-images/person-placeholder.png' | relative_url }}" alt="April Murphy" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
+          <img src="{{ '/images/stock-images/April.jpg' | relative_url }}" alt="April Murphy" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
           <div class="person-meta">
             <div class="person-name">April Murphy</div>
             <div class="person-role">Carnegie Learning</div>
@@ -93,7 +93,7 @@ header: true
         </li>
 
         <li class="person">
-          <img src="{{ '/images/stock-images/person-placeholder.png' | relative_url }}" alt="Steve Ritter" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
+          <img src="{{ '/images/stock-images/Steve.jpg' | relative_url }}" alt="Steve Ritter" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
           <div class="person-meta">
             <div class="person-name">Steve Ritter</div>
             <div class="person-role">Carnegie Learning</div>
@@ -116,7 +116,7 @@ header: true
         </li>
 
         <li class="person">
-          <img src="{{ '/images/stock-images/person-placeholder.png' | relative_url }}" alt="Marshall An" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
+          <img src="{{ '/images/stock-images/Marshall.jpg' | relative_url }}" alt="Marshall An" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
           <div class="person-meta">
             <div class="person-name">Marshall An</div>
             <div class="person-role">PhD Student (Human–Computer Interaction), Carnegie Mellon University</div>

@@ -11,4 +11,4 @@ permalink: "/contact/"
 ### For questions, please contact:
 * [Jeffery Carver](mailto:carver@cs.ua.edu)
 * [Joseph Jay Williams](mailto:williams@cs.toronto.edu)
-* [John Stamper](mailto:jstamper@cmu.edu).
+* [John Stamper](mailto:jstamper@cmu.edu)

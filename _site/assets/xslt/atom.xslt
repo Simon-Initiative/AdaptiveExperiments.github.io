@@ -187,7 +187,7 @@
 
               <li class="has-dropdown">
                 
-                  <a  href="/ADAPTIVEEXPERIMENTS/about/">About</a>
+                  <a  href="/ADAPTIVEEXPERIMENTS/">About</a>
                 
 
                   <ul class="dropdown">

@@ -5,7 +5,6 @@ permalink: /easi/
 header: true
 ---
 
-<!-- page content -->
 ## EASI
 
 Adaptive Experiments builds Experiments‑As‑a‑Service Infrastructure (EASI) to make real‑world educational field experiments simple, reproducible, and effective. Lower the barrier for teachers and researchers to test instructional designs, discover what improves learning, and deploy improvements at scale.
@@ -28,7 +27,9 @@ EASI can be used to run a wide variety of experiments, including randomized cont
 
 ### How can I get started with EASI?
 
-To get started with EASI, visit the [UpGrade website](https://www.upgradeplatform.org/) and sign up for an account. Once you have an account, you can create and run experiments using the platform.
+To get started with EASI, visit the [UpGrade documentation](https://upgrade-platform.gitbook.io/upgrade-documentation/developer-guide/usage-guide) and follow the instructions to create and configure your own experiment instance.
+
+If you need assistance creating an instance or configuring an experiment, reach out to any of the project leaders for support on the <a href="{{ '/team/' | relative_url }}" class="btn" style="margin-top:0.5rem;">Team page</a>
 
 ### What are the benefits of using EASI?
 

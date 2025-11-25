@@ -14,11 +14,11 @@ widget2:
   text: 'Run randomized and adaptive experiments (Thompson sampling & Bayesian inference) to get answers with fewer participants. Monitor results in real time with dashboards and alerts, and keep experiments reproducible with versioned configs and analysis pipelines.'
 widget3:
   title: "Participate and get started:"
-  url: https://www.upgradeplatform.org/
+  url: https://upgrade-platform.gitbook.io/upgrade-documentation/developer-guide/usage-guide/
   image: upgrade_step.png
   text: 'Integrate with analytics, LMS, and CI for production workflows. Contribute experiments, access reproducible analysis pipelines, and use curated open training materials to scale practice.'
 callforaction:
-  url: /support/
+  url: https://upgrade-platform.gitbook.io/upgrade-documentation/developer-guide/usage-guide/
   text: How to conduct your next research ›
   style: alert
 permalink: /index.html
@@ -58,9 +58,9 @@ homepage: true
         <li>C–Adaptation: Enable research into adaptive experimentation by providing a testbed for algorithms that dynamically analyze data from experiments, to enhance learning faster with less participants</li>
       </ul>
       <p>
-        <a href="/easi/" class="btn" style="margin-right:0.5rem;">Why EASI?</a>
-        <a href="/support/" class="btn" style="margin-right:0.5rem;">Participate</a>
-        <a href="https://www.upgradeplatform.org/" class="btn">View on UpGrade</a>
+        <a href="{{ '/easi/' | relative_url }}" class="btn" style="margin-right:0.5rem;">Why EASI?</a>
+        <a href="https://upgrade-platform.gitbook.io/upgrade-documentation/developer-guide/usage-guide/" class="btn" style="margin-right:0.5rem;" target="_blank" rel="noopener noreferrer">Run your Experiment</a>
+        <a href="https://www.upgradeplatform.org/" class="btn" target="_blank" rel="noopener noreferrer">View on UpGrade</a>
       </p>
     </div>
   </div>

@@ -196,14 +196,14 @@
                       
 
                       
-                        <li><a  href="/ADAPTIVEEXPERIMENTS/support/">Research Support</a></li>
+                        <li><a  href="/ADAPTIVEEXPERIMENTS/team/">Team</a></li>
                       
                     
 
                       
 
                       
-                        <li><a  href="/ADAPTIVEEXPERIMENTS/team/">Team</a></li>
+                        <li><a  href="/ADAPTIVEEXPERIMENTS/support/">Research Support</a></li>
                       
                     
                   </ul>

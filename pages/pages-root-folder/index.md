@@ -45,7 +45,9 @@ homepage: true
   <div class="hero-inner">
     <div class="hero-copy">
       <figure class="hero-figure" aria-hidden="false">
-        <img src="{{ '/images/mooclet_policy.png' | relative_url }}" alt="MOOClet">
+        <a href="https://upgrade-demo.carnegielearning.com/login" target="_blank" rel="noopener noreferrer" aria-label="Open demo in new tab">
+          <img src="{{ '/images/upgrade_demo.png' | relative_url }}" alt="UpGrade">
+        </a>
       </figure>
 
       <h1 style="margin: 0 0 0.5rem; font-size: 2.25rem; line-height: 1.05;">Project Goals</h1>

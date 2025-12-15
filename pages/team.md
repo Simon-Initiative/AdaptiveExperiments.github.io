@@ -53,34 +53,18 @@ header: true
       <ul class="leaders-list">
 
         <li class="person">
-          <img src="{{ '/images/stock-images/Carver.jpg' | relative_url }}" alt="Jeffrey Carver" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
-          <div class="person-meta">
-            <div class="person-name"><a href="https://carver.cs.ua.edu/">Jeffrey Carver</a></div>
-            <div class="person-role">University of Alabama</div>
-          </div>
-        </li>
-
-        <li class="person">
-          <img src="{{ '/images/stock-images/joseph.png' | relative_url }}" alt="Joseph Jay Williams" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
-          <div class="person-meta">
-            <div class="person-name"><a href="https://www.josephjaywilliams.com/">Joseph Jay Williams</a></div>
-            <div class="person-role">University of Toronto</div>
-          </div>
-        </li>
-
-        <li class="person">
-          <img src="{{ '/images/stock-images/john-stamper.jpg' | relative_url }}" alt="John Stamper" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
-          <div class="person-meta">
-            <div class="person-name"><a href="https://www.hcii.cmu.edu/people/john-stamper">John Stamper</a></div>
-            <div class="person-role">Carnegie Mellon University</div>
-          </div>
-        </li>
-
-        <li class="person">
           <img src="{{ '/images/stock-images/bier.jpg' | relative_url }}" alt="Norman Bier" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
           <div class="person-meta">
             <div class="person-name"><a href="https://www.linkedin.com/in/norman-bier-9792b03/">Norman Bier</a></div>
             <div class="person-role">Carnegie Mellon University</div>
+          </div>
+        </li>
+
+        <li class="person">
+          <img src="{{ '/images/stock-images/Carver.jpg' | relative_url }}" alt="Jeffrey Carver" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
+          <div class="person-meta">
+            <div class="person-name"><a href="https://carver.cs.ua.edu/">Jeffrey Carver</a></div>
+            <div class="person-role">University of Alabama</div>
           </div>
         </li>
 
@@ -100,6 +84,22 @@ header: true
           </div>
         </li>
 
+        <li class="person">
+          <img src="{{ '/images/stock-images/john-stamper.jpg' | relative_url }}" alt="John Stamper" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
+          <div class="person-meta">
+            <div class="person-name"><a href="https://www.hcii.cmu.edu/people/john-stamper">John Stamper</a></div>
+            <div class="person-role">Carnegie Mellon University</div>
+          </div>
+        </li>
+
+        <li class="person">
+          <img src="{{ '/images/stock-images/joseph.png' | relative_url }}" alt="Joseph Jay Williams" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
+          <div class="person-meta">
+            <div class="person-name"><a href="https://www.josephjaywilliams.com/">Joseph Jay Williams</a></div>
+            <div class="person-role">University of Toronto</div>
+          </div>
+        </li>
+
       </ul>
     </section>
 
@@ -108,18 +108,18 @@ header: true
       <ul class="team-list">
 
         <li class="person">
-          <img src="{{ '/images/awwal.jpg' | relative_url }}" alt="Awwal Badru" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
-          <div class="person-meta">
-            <div class="person-name"><a href="https://www.linkedin.com/in/awwal-b-389887198/"> Awwal Badru </a></div>
-            <div class="person-role">PhD Student (Computer Science), University of Alabama</div>
-          </div>
-        </li>
-
-        <li class="person">
           <img src="{{ '/images/stock-images/Marshall.jpg' | relative_url }}" alt="Marshall An" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
           <div class="person-meta">
             <div class="person-name"><a href="https://www.hcii.cmu.edu/people/marshall"> Marshall An </a></div>
             <div class="person-role">PhD Student (Human–Computer Interaction), Carnegie Mellon University</div>
+          </div>
+        </li>
+
+        <li class="person">
+          <img src="{{ '/images/awwal.jpeg' | relative_url }}" alt="Awwal Badru" onerror="this.onerror=null;this.src='https://via.placeholder.com/84?text=Photo'">
+          <div class="person-meta">
+            <div class="person-name"><a href="https://awwal-badru.github.io/"> Awwal Badru </a></div>
+            <div class="person-role">PhD Student (Computer Science), University of Alabama</div>
           </div>
         </li>
 

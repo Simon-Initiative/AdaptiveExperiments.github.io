@@ -14,11 +14,11 @@ widget2:
   text: 'Run randomized and adaptive experiments (Thompson sampling & Bayesian inference) to get answers with fewer participants. Monitor results in real time with dashboards and alerts, and keep experiments reproducible with versioned configs and analysis pipelines.'
 widget3:
   title: "Participate and get started:"
-  url: https://upgrade-platform.gitbook.io/upgrade-documentation/developer-guide/usage-guide/
+  url: https://upgrade-platform.gitbook.io/upgrade-documentation
   image: upgrade_step.png
   text: 'Integrate with analytics, LMS, and CI for production workflows. Contribute experiments, access reproducible analysis pipelines, and use curated open training materials to scale practice.'
 callforaction:
-  url: https://upgrade-platform.gitbook.io/upgrade-documentation/developer-guide/usage-guide/
+  url: https://upgrade-platform.gitbook.io/upgrade-documentation
   text: How to conduct your next research ›
   style: alert
 permalink: /index.html
@@ -45,7 +45,9 @@ homepage: true
   <div class="hero-inner">
     <div class="hero-copy">
       <figure class="hero-figure" aria-hidden="false">
-        <img src="{{ '/images/mooclet_policy.png' | relative_url }}" alt="MOOClet">
+        <a href="https://upgrade-demo.carnegielearning.com/login" target="_blank" rel="noopener noreferrer" aria-label="Open demo in new tab">
+          <img src="{{ '/images/upgrade_demo.png' | relative_url }}" alt="UpGrade">
+        </a>
       </figure>
 
       <h1 style="margin: 0 0 0.5rem; font-size: 2.25rem; line-height: 1.05;">Project Goals</h1>
@@ -59,7 +61,7 @@ homepage: true
       </ul>
       <p>
         <a href="{{ '/easi/' | relative_url }}" class="btn" style="margin-right:0.5rem;">Why EASI?</a>
-        <a href="https://upgrade-platform.gitbook.io/upgrade-documentation/developer-guide/usage-guide/" class="btn" style="margin-right:0.5rem;" target="_blank" rel="noopener noreferrer">Run your Experiment</a>
+        <a href="https://upgrade-platform.gitbook.io/upgrade-documentation/" class="btn" style="margin-right:0.5rem;" target="_blank" rel="noopener noreferrer">Run your Experiment</a>
         <a href="https://www.upgradeplatform.org/" class="btn" target="_blank" rel="noopener noreferrer">View on UpGrade</a>
       </p>
     </div>

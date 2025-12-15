@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="/ADAPTIVEEXPERIMENTS/assets/xslt/atom.xslt" ?>
-<?xml-stylesheet type="text/css" href="/ADAPTIVEEXPERIMENTS/assets/css/atom.css" ?>
+<?xml-stylesheet type="text/xsl" href="/assets/xslt/atom.xslt" ?>
+<?xml-stylesheet type="text/css" href="/assets/css/atom.css" ?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<id>http://localhost:4000/ADAPTIVEEXPERIMENTS/</id>
+	<id>http://localhost:4000/</id>
 	<title>EASI</title>
-	<updated>2025-11-24T22:19:30-06:00</updated>
+	<updated>2025-12-15T12:39:43-06:00</updated>
 
 	<subtitle>EASI is an NSF funded project entitled &quot;Experiments-As-a-Service-Infrastructure (EASI) to enable a collaborative ecosystem of experimentation in real-world educational settings&quot;</subtitle>
 
@@ -19,8 +19,8 @@
 		</author>
 	
 
-	<link href="http://localhost:4000/ADAPTIVEEXPERIMENTS/atom.xml" rel="self" type="application/rss+xml" />
-	<link href="http://localhost:4000/ADAPTIVEEXPERIMENTS/" rel="alternate" type="text/html" />
+	<link href="http://localhost:4000/atom.xml" rel="self" type="application/rss+xml" />
+	<link href="http://localhost:4000/" rel="alternate" type="text/html" />
 
 	<generator uri="http://jekyllrb.com" version="4.3.3">Jekyll</generator>
 

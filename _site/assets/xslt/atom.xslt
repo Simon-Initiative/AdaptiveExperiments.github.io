@@ -224,7 +224,7 @@
 
               <li class="has-dropdown">
                 
-                  <a  href="/">Use Cases</a>
+                  <a  href="/">Partners</a>
                 
 
                   <ul class="dropdown">

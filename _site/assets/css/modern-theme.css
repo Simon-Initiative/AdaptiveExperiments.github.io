@@ -43,7 +43,8 @@
 /* ── Base ─────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden; /* prevent horizontal scroll on narrow screens */
+  /* NOTE: do NOT add overflow-x:hidden here — it breaks position:fixed
+     elements (mobile drawer, nav) in iOS Safari and some Chromium builds */
 }
 
 body {
@@ -52,8 +53,8 @@ body {
   color: var(--body-text) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden; /* belt-and-suspenders on mobile */
-  max-width: 100vw;
+  /* overflow-x:hidden on body is safe — does not clip position:fixed children */
+  overflow-x: hidden;
 }
 
 /* Push page content below fixed nav */

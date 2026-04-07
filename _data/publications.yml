@@ -1,0 +1,28 @@
+- type: Journal
+  author: "Badru, Lawal and Carver, J."
+  year: 2026
+  title: "Personalizing Supplementary Materials in Software Engineering: Impact of Preferences, Learning Styles, and Gender"
+  journal: "ACM Transactions on Computing Education"
+  month: "03"
+  doi: "10.1145/3806053"
+  url: "https://doi.org/10.1145/3806053"
+  publisher: "Association for Computing Machinery"
+  address: "New York, NY, USA"
+  keywords: "contextual Thompson Sampling, Adaptive Experiment"
+
+- type: Journal
+  author: "Hulleman, C. S., & Harackiewicz, J. M."
+  year: 2009
+  title: "Promoting interest and performance in high school science classes"
+  journal: "Science, 326(5958), 1410–1412"
+  doi: "10.1126/science.1177067"
+  url: "https://doi.org/10.1126/science.1177067"
+
+- type: Conference
+  author: "Badru, Lawal and An, M. and Stamper, J. and Carver, J."
+  year: 2025
+  title: "Optimizing Learning: A Comparative Study of Adaptive Experiments and Randomization in a Software Engineering Course"
+  booktitle: "Palermo '25: Sixth Annual Workshop on A/B Testing and Platform-Enabled Learning Engineering (PELE), Learning@Scale 2025"
+  month: "07"
+  address: "Palermo, Italy"
+  url: "https://www.researchgate.net/profile/Awwal-Badru/publication/395297168_Optimizing_Learning_A_Comparative_Study_of_Adaptive_Experiments_and_Randomization_in_a_Software_Engineering_Course/links/68badc0ee69154767c2a2c9f/Optimizing-Learning-A-Comparative-Study-of-Adaptive-Experiments-and-Randomization-in-a-Software-Engineering-Course.pdf"

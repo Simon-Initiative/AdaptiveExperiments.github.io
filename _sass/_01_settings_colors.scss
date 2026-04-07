@@ -16,24 +16,23 @@
 /* Basics
 ------------------------------------------------------------------- */
 
-$text-color:       	#111;
-$body-font-color: 	$text-color;
-$body-bg: 			#fdfdfd;
-$nav-bg:        #334D5C; //black: #000000;
+$text-color:       #1e293b;
+$body-font-color:  $text-color;
+$body-bg:          #f8fafc;
+$nav-bg:           #0a1628; // deep navy
 
 
 /* Corporate Identity Colorpalette
    https://color.adobe.com/de/Flat-Design-Colors-v2-color-theme-4341903/
 ------------------------------------------------------------------- */
 
-$ci-1: #334D5C;		// dark turquoise
-$ci-2: #45B29D;		// turquoise
-$ci-3: #EFC94C;		// yellow
-$ci-4: #E27A3F;		// orange
-$ci-5: #DF4949;		// red
-$ci-6: #A1D044;     // green
-//$ci-6: #209CEE; //IAC blue - not good for links on grey
-$ci-7: #5a0141;   //US-RSE Nav Color: 500E3D 
+$ci-1: #0a1628;		// deep navy
+$ci-2: #22d3ee;		// cyan
+$ci-3: #EFC94C;		// yellow (keep)
+$ci-4: #E27A3F;		// orange (keep)
+$ci-5: #DF4949;		// red (keep)
+$ci-6: #38bdf8;     // sky blue
+$ci-7: #112240;     // navy mid
 
 
 /* Foundation Color Variables
@@ -112,17 +111,13 @@ $topbar-menu-icon-color-toggled: $ci-7;
 
 
 
-/* Footer
-------------------------------------------------------------------- */
+$footer-bg: #0a1628;
+$footer-color: #f0f9ff;
+$footer-link-color: #38bdf8;
 
-$footer-bg: $grey-8;
-$footer-color: #fff;
-$footer-link-color: $ci-6;
-
-
-$subfooter-bg: $grey-13;
-$subfooter-color: $grey-8;
-$subfooter-link-color: $grey-8;
+$subfooter-bg: #060e1a;
+$subfooter-color: rgba(255,255,255,.45);
+$subfooter-link-color: rgba(255,255,255,.3);
 
 
 

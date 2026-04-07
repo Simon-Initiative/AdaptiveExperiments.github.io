@@ -1,162 +1,224 @@
 {% comment %}
-*
-*  To customize the navigation of *Feeling Responsive*,
-*  edit `_data/navigation.yml`.
-*
+  Modern EASI Navigation
+  - Replaces Foundation top-bar with a self-contained glassmorphic nav
+  - Reads links from _data/navigation.yml (same as before)
+  - Mobile drawer managed by inline JS (no Foundation JS required)
 {% endcomment %}
-<div id="navigation" class="sticky">
-  <nav class="top-bar" role="navigation" data-topbar>
-    <ul class="title-area">
-      <li class="name">
-      <h1 class="show-for-small-only"><a href="{{ site.url }}{{ site.baseurl }}" class="icon-tree"> {{ site.title }}</a></h1>
-    </li>
-       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Nav</span></a></li>
-    </ul>
-    <section class="top-bar-section">
-{% comment %}
 
-    ____  _       __    __     _   __            _             __  _
-   / __ \(_)___ _/ /_  / /_   / | / /___ __   __(_)___ _____ _/ /_(_)___  ____
-  / /_/ / / __ `/ __/\/ __/  /  |/ / __ `/ | / / / __ `/ __ `/ __/ / __ \/ __ \
- / _, _/ / /_/ / / / / /_   / /|  / /_/ /| |/ / / /_/ / /_/ / /_/ / /_/ / / / /
-/_/ |_/_/\__, /_/ /_/\__/  /_/ |_/\__,_/ |___/_/\__, /\__,_/\__/_/\____/_/ /_/
-        /____/                                 /____/
+{% comment %} Keep original nav in DOM (hidden by CSS) so Foundation JS doesn't error {% endcomment %}
+<div id="navigation" class="sticky" style="display:none!important;height:0;overflow:hidden" aria-hidden="true">
+  <nav class="top-bar" role="navigation" data-topbar></nav>
+</div>
 
-{% endcomment %}
-      <ul class="right">
+<!-- ═══ Modern Nav Bar ═══════════════════════════════════════ -->
+<header id="easi-nav" role="banner">
+  <div class="easi-nav-inner">
+
+    <!-- Logo -->
+    <a href="{{ site.url }}{{ site.baseurl }}/" class="easi-nav-logo" aria-label="{{ site.title }} Home">
+      <div class="easi-nav-logo-badge">E</div>
+      <div class="easi-nav-logo-text">
+        <span class="easi-nav-logo-title">Experiments-As-a-Service-Infrastructure</span>
+        <span class="easi-nav-logo-sub">(EASI) &middot; Adaptive Experiments</span>
+      </div>
+    </a>
+
+    <!-- Desktop Links -->
+    <nav aria-label="Main navigation">
+      <ul class="easi-nav-links" role="list">
         {% for link in site.data.navigation %}
-
-              {% if link.url contains 'http' %}
-                {% assign domain = '' %}
-                {% assign _baseurl = '' %}
-              {% elsif link.url == '#' %}
-                {% assign domain = '' %}
-                {% assign _baseurl = site.baseurl %}
-              {% else %}
-                {% assign domain = site.url %}
-                {% assign _baseurl = site.baseurl %}
-              {% endif %}
-
-
-
-          {% comment %}   If there are links for right side begin   {% endcomment %}
-          {% if link.side == 'right' %}
-            {% comment %}   If right side WITHOUT dropdown menu do   {% endcomment %}
-            {% if link.dropdown == nil %}
-              <li class="{% if link.url == page.url %} active{% elsif page.homepage == true and link.url == '/' %} active{% endif %}">
-                {% if link.url contains 'http' %}
-                  <a {% if link.class %}class="{{link.class}}"{% endif %} href="{{ link.url }}" target="_blank">{{ link.title | escape }}</a>
-                {% else %}
-                  <a {% if link.class %}class="{{link.class}}"{% endif %} href="{{ link.url | relative_url }}">{{ link.title | escape }}</a>
-                {% endif %}
-              </li>
-
-            {% comment %}   If right side WITH dropdown menu do   {% endcomment %}
-            {% else %}
-
-              <li class="has-dropdown{% if link.url == page.url %} active{% endif %}">
-                {% if link.url contains 'http' %}
-                  <a {% if link.class %}class="{{link.class}}"{% endif %} href="{{ link.url }}" target="_blank">{{ link.title | escape }}</a>
-                {% else %}
-                  <a {% if link.class %}class="{{link.class}}"{% endif %} href="{{ link.url | relative_url }}">{{ link.title | escape }}</a>
-                {% endif %}
-
-                  <ul class="dropdown">
-                    {% for dropdown_link in link.dropdown %}
-
-                      {% if dropdown_link.url contains 'http' %}
-                        {% assign domain = '' %}
-                        {% else %}
-                        {% assign domain = site.url %}
-                      {% endif %}
-
-                      {% if dropdown_link.url contains 'http' %}
-                        <li><a {% if dropdown_link.class %}class="{{dropdown_link.class}}"{% endif %} href="{{ dropdown_link.url }}" target="_blank">{{ dropdown_link.title | escape }}</a></li>
-                      {% else %}
-                        <li><a {% if dropdown_link.class %}class="{{dropdown_link.class}}"{% endif %} href="{{ dropdown_link.url | relative_url }}">{{ dropdown_link.title | escape }}</a></li>
-                      {% endif %}
-                    {% endfor %}
-                  </ul>
-
-              </li>
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-        {% comment %}   First loop finished 1   {% endcomment %}
-      </ul>
-{% comment %}
-
-    __         ______     _   __            _             __  _
-   / /   ___  / __/ /_   / | / /___ __   __(_)___ _____ _/ /_(_)___  ____
-  / /   / _ \/ /_/ __/  /  |/ / __ `/ | / / / __ `/ __ `/ __/ / __ \/ __ \
- / /___/  __/ __/ /_   / /|  / /_/ /| |/ / / /_/ / /_/ / /_/ / /_/ / / / /
-/_____/\___/_/  \__/  /_/ |_/\__,_/ |___/_/\__, /\__,_/\__/_/\____/_/ /_/
-                                          /____/
-
-{% endcomment %}
-      <ul class="left">
-        {% for link in site.data.navigation %}
-
-              {% if link.url contains 'http' %}
-                {% assign domain = '' %}
-                {% assign _baseurl = '' %}
-              {% elsif link.url == '#' %}
-                {% assign domain = '' %}
-                {% assign _baseurl = site.baseurl %}
-              {% else %}
-                {% assign domain = site.url %}
-                {% assign _baseurl = site.baseurl %}
-              {% endif %}
-
-          {% comment %}   If there are links for left side begin   {% endcomment %}
           {% if link.side == 'left' %}
 
-            {% comment %}   If left side WITHOUT dropdown menu do   {% endcomment %}
-            {% if link.dropdown == nil %}
-              <li{% if link.url == page.url %} class="active"{% elsif page.homepage == true and link.url == '/' %} class="active"{% endif %}>
-                {% if link.url contains 'http' %}
-                  <a {% if link.class %}class="{{link.class}}"{% endif %} href="{{ link.url }}" target="_blank">{{ link.title | escape }}</a>
+            {% comment %} Determine active state {% endcomment %}
+            {% assign is_active = false %}
+            {% if link.url != '#' and link.url == page.url %}{% assign is_active = true %}{% endif %}
+            {% if link.url != '#' and page.homepage == true and link.url == '/' %}{% assign is_active = true %}{% endif %}
+
+            {% if link.dropdown %}
+              <li class="{% if is_active %}active{% endif %}">
+                {% if link.url == '#' %}
+                  <a href="javascript:void(0)" aria-haspopup="true" aria-expanded="false">
+                {% elsif link.url contains 'http' %}
+                  <a href="{{ link.url }}" target="_blank" rel="noopener" aria-haspopup="true" aria-expanded="false">
                 {% else %}
-                  <a {% if link.class %}class="{{link.class}}"{% endif %} href="{{ link.url | relative_url }}">{{ link.title | escape }}</a>
+                  <a href="{{ link.url | relative_url }}" aria-haspopup="true" aria-expanded="false">
                 {% endif %}
-              </li>
-              <li class="divider"></li>
-
-            {% comment %}   If left side WITH dropdown menu do   {% endcomment %}
-            {% else %}
-
-              <li class="has-dropdown{% if link.url == page.url %} active{% endif %}">
-                {% if link.url contains 'http' %}
-                  <a {% if link.class %}class="{{link.class}}"{% endif %} href="{{ link.url }}" target="_blank">{{ link.title | escape }}</a>
-                {% else %}
-                  <a {% if link.class %}class="{{link.class}}"{% endif %} href="{{ link.url | relative_url }}">{{ link.title | escape }}</a>
-                {% endif %}
-
-                  <ul class="dropdown">
-                    {% for dropdown_link in link.dropdown %}
-
-                      {% if dropdown_link.url contains 'http' %}
-                        {% assign domain = '' %}
-                        {% else %}
-                        {% assign domain = site.url %}
-                      {% endif %}
-
-                      {% if dropdown_link.url contains 'http' %}
-                        <li><a {% if dropdown_link.class %}class="{{dropdown_link.class}}"{% endif %} href="{{ dropdown_link.url }}" target="_blank">{{ dropdown_link.title | escape }}</a></li>
+                    {{ link.title | escape }}
+                    <span class="nav-chevron" aria-hidden="true">▾</span>
+                  </a>
+                <ul class="easi-dropdown" role="menu">
+                  {% for drop in link.dropdown %}
+                    <li role="none">
+                      {% if drop.url contains 'http' %}
+                        <a href="{{ drop.url }}" target="_blank" rel="noopener" role="menuitem">{{ drop.title | escape }}</a>
                       {% else %}
-                        <li><a {% if dropdown_link.class %}class="{{dropdown_link.class}}"{% endif %} href="{{ dropdown_link.url | relative_url }}">{{ dropdown_link.title | escape }}</a></li>
+                        <a href="{{ drop.url | relative_url }}" role="menuitem">{{ drop.title | escape }}</a>
                       {% endif %}
-                    {% endfor %}
-                  </ul>
-
+                    </li>
+                  {% endfor %}
+                </ul>
               </li>
-              <li class="divider"></li>
+            {% else %}
+              <li class="{% if is_active %}active{% endif %}">
+                {% if link.url contains 'http' %}
+                  <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.title | escape }}</a>
+                {% else %}
+                  <a href="{{ link.url | relative_url }}">{{ link.title | escape }}</a>
+                {% endif %}
+              </li>
             {% endif %}
+
           {% endif %}
         {% endfor %}
-        {% comment %}   Second loop finished   {% endcomment %}
       </ul>
-    </section>
-  </nav>
-</div><!-- /#navigation -->
+    </nav>
+
+    <!-- Right side: CTA + hamburger -->
+    <div class="easi-nav-cta">
+      <a href="https://github.com/CarnegieLearningWeb/UpGrade" target="_blank" rel="noopener" class="easi-nav-btn">
+        GitHub ↗
+      </a>
+      <button class="easi-hamburger" id="easiHamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="easi-mobile-drawer">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- ═══ Mobile Drawer ════════════════════════════════════════ -->
+<nav id="easi-mobile-drawer" aria-label="Mobile navigation" aria-hidden="true">
+  <ul class="easi-mobile-links" role="list">
+    {% for link in site.data.navigation %}
+      {% if link.side == 'left' %}
+
+        {% if link.dropdown %}
+          <li>
+            {% if link.url contains 'http' %}
+              <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.title | escape }}</a>
+            {% else %}
+              <a href="{{ link.url | relative_url }}">{{ link.title | escape }}</a>
+            {% endif %}
+          </li>
+          {% for drop in link.dropdown %}
+            <li class="mobile-sub">
+              {% if drop.url contains 'http' %}
+                <a href="{{ drop.url }}" target="_blank" rel="noopener">↳ {{ drop.title | escape }}</a>
+              {% else %}
+                <a href="{{ drop.url | relative_url }}">↳ {{ drop.title | escape }}</a>
+              {% endif %}
+            </li>
+          {% endfor %}
+          <li><div class="easi-mobile-divider"></div></li>
+
+        {% else %}
+          <li>
+            {% if link.url contains 'http' %}
+              <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.title | escape }}</a>
+            {% else %}
+              <a href="{{ link.url | relative_url }}">{{ link.title | escape }}</a>
+            {% endif %}
+          </li>
+        {% endif %}
+
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <div class="easi-mobile-cta">
+    <a href="https://github.com/CarnegieLearningWeb/UpGrade" target="_blank" rel="noopener">
+      View on GitHub ↗
+    </a>
+  </div>
+</nav>
+
+
+<script>
+(function () {
+  /* ── Hamburger / Mobile Drawer ──────────────────── */
+  var btn    = document.getElementById('easiHamburger');
+  var drawer = document.getElementById('easi-mobile-drawer');
+
+  if (btn && drawer) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = drawer.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+      drawer.setAttribute('aria-hidden',  String(!isOpen));
+    });
+
+    // Close drawer on outside click
+    document.addEventListener('click', function (e) {
+      if (!btn.contains(e.target) && !drawer.contains(e.target)) {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        drawer.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // Close drawer when a link inside it is clicked
+    drawer.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        drawer.setAttribute('aria-hidden', 'true');
+      });
+    });
+  }
+
+  /* ── Desktop Dropdown — click-to-open ──────────── */
+  var ddTriggers = document.querySelectorAll('.easi-nav-links > li > a[aria-haspopup="true"]');
+
+  ddTriggers.forEach(function (trigger) {
+    var parentLi = trigger.parentElement;
+
+    // Click on trigger toggles the dropdown
+    trigger.addEventListener('click', function (e) {
+      // Only intercept when a dropdown exists on this item
+      var dropdown = parentLi.querySelector('.easi-dropdown');
+      if (!dropdown) return;
+
+      e.preventDefault(); // stop navigation on the parent link; sub-links still work
+      var isOpen = parentLi.classList.toggle('dd-open');
+      trigger.setAttribute('aria-expanded', String(isOpen));
+
+      // Close all other open dropdowns
+      document.querySelectorAll('.easi-nav-links > li.dd-open').forEach(function (li) {
+        if (li !== parentLi) {
+          li.classList.remove('dd-open');
+          var t = li.querySelector('a[aria-haspopup]');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  });
+
+  // Close any open dropdown when clicking outside the nav
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('#easi-nav')) {
+      document.querySelectorAll('.easi-nav-links > li.dd-open').forEach(function (li) {
+        li.classList.remove('dd-open');
+        var t = li.querySelector('a[aria-haspopup]');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+
+  // Close dropdown when a sub-link is clicked
+  document.querySelectorAll('.easi-dropdown a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var parentLi = a.closest('.easi-nav-links > li');
+      if (parentLi) {
+        parentLi.classList.remove('dd-open');
+        var t = parentLi.querySelector('a[aria-haspopup]');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+})();
+</script>

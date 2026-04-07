@@ -1,82 +1,96 @@
+<!-- ═══ Back-to-Top ════════════════════════════════════════════ -->
 <div id="up-to-top" class="row">
-  <div class="small-12 columns" style="text-align: right;">
-    <a class="iconfont" href="#top-of-page">&#xf108;</a>
-  </div><!-- /.small-12.columns -->
-</div><!-- /.row -->
+  <div class="small-12 columns" style="text-align:right">
+    <a href="#top-of-page" title="Back to top" aria-label="Back to top">&#xf108;</a>
+  </div>
+</div>
 
+<!-- ═══ Modern Footer ══════════════════════════════════════════ -->
+<footer id="footer-content">
 
-<footer id="footer-content" class="bg-grau">
   <div id="footer">
-    <div class="row">
-      <div class="medium-6 large-8 columns">
-        <h5 class="shadow-black">{{ site.data.language.info_website }}</h5>
+    <div class="row" style="max-width:1200px;margin:0 auto;padding:0 16px">
 
-        <p class="shadow-black">
+      <!-- Col 1: About -->
+      <div class="medium-5 large-5 columns" style="padding-right:40px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#22d3ee,#38bdf8);display:flex;align-items:center;justify-content:center;font-weight:900;color:#0a1628;font-size:15px;flex-shrink:0">E</div>
+          <div>
+            <div style="color:#f0f9ff;font-weight:800;font-size:.95rem;letter-spacing:-.02em">EASI</div>
+            <div style="color:#22d3ee;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.8">AdaptiveExperiments</div>
+          </div>
+        </div>
+        <h5>{{ site.data.language.info_website }}</h5>
+        <p>
           {{ site.description }}
           <a href="{{ site.url }}{{ site.baseurl }}/about/">{{ site.data.language.more }}</a>
-          <br>
-          {{ site.license }}
-          <br>
+        </p>
+        <p style="margin-top:10px">
+          {{ site.license }}<br>
           {{ site.disclaimer }}
         </p>
-      </div><!-- /.large-6.columns -->
+      </div>
 
-
-      <div class="small-6 medium-3 large-3 large-offset-1 columns">
+      <!-- Col 2: Links -->
+      <div class="small-6 medium-3 large-3 columns" style="padding-left:20px">
         {% for service_item in site.data.services %}
           {% if forloop.first == true %}
-            <h5 class="shadow-black">{{ service_item.menu_name }}</h5>
+            <h5>{{ service_item.menu_name }}</h5>
           {% endif %}
         {% endfor %}
-
-          <ul class="no-bullet shadow-black">
+        <ul class="no-bullet">
           {% for service_item in site.data.services %}
             {% if service_item.url contains 'http' %}{% assign domain = '' %}{% else %}{% capture domain %}{{ site.url }}{{ site.baseurl }}{% endcapture %}{% endif %}
-              <li {% if service_item.class %}class="{{ service_item.class }}" {% endif %}>
-                <a href="{{ domain }}{{ service_item.url }}" {% if service_item.url contains 'http' %}target="_blank" {% endif %} title="{{ service_item.title }}">{{ service_item.name }}</a>
-              </li>
+            <li {% if service_item.class %}class="{{ service_item.class }}"{% endif %}>
+              <a href="{{ domain }}{{ service_item.url }}" {% if service_item.url contains 'http' %}target="_blank" rel="noopener"{% endif %} title="{{ service_item.title }}">
+                {{ service_item.name }}
+              </a>
+            </li>
           {% endfor %}
-          </ul>
-      </div><!-- /.large-4.columns -->
+        </ul>
+      </div>
 
+      <!-- Col 3: Network + NSF Logo -->
+      <div class="small-6 medium-4 large-4 columns">
+        <div style="margin-bottom:20px">
+          <img src="{{ site.urlimg }}nsf-transparent.png" alt="NSF Logo" style="width:180px;height:auto;opacity:.92;display:block;margin-bottom:14px">
+          <p style="font-size:.75rem;opacity:.5;margin:0">Funded by the National Science Foundation</p>
+        </div>
 
-
-
-      <div class="small-6 medium-3 large-3 columns">
-        <img src="{{ site.urlimg }}nsf-transparent.png" width="970"> <!-- add NSF logo IAC -->
         {% for network_item in site.data.network %}
           {% if forloop.first == true %}
-            <h5 class="shadow-black">{{ network_item.menu_name }}</h5>
+            <h5>{{ network_item.menu_name }}</h5>
           {% endif %}
         {% endfor %}
-
-        <ul class="no-bullet shadow-black">
+        <ul class="no-bullet">
         {% for network_item in site.data.network %}
           {% if network_item.url contains 'http' %}{% assign domain = '' %}{% else %}{% capture domain %}{{ site.url }}{{ site.baseurl }}{% endcapture %}{% endif %}
-            <li {% if network_item.class %}class="{{ network_item.class }}" {% endif %}>
-              <a href="{{ domain }}{{ network_item.url }}" {% if network_item.url contains 'http' %}target="_blank" {% endif %} title="{{ network_item.title }}">{{ network_item.name }}</a>
-            </li>
+          <li {% if network_item.class %}class="{{ network_item.class }}"{% endif %}>
+            <a href="{{ domain }}{{ network_item.url }}" {% if network_item.url contains 'http' %}target="_blank" rel="noopener"{% endif %} title="{{ network_item.title }}">
+              {{ network_item.name }}
+            </a>
+          </li>
         {% endfor %}
         </ul>
-      </div><!-- /.large-3.columns -->
-    </div><!-- /.row -->
+      </div>
 
+    </div><!-- /.row -->
   </div><!-- /#footer -->
 
-
+  <!-- Sub-footer -->
   <div id="subfooter">
-    <nav class="row">
+    <nav class="row" style="max-width:1200px;margin:0 auto;padding:0 16px">
       <section id="subfooter-left" class="small-12 medium-6 columns credits">
         {{ site.credits }}
       </section>
-
-      <section id="subfooter-right" class="small-12 medium-6 columns">
-        <ul class="inline-list social-icons">
-        {% for social_item in site.data.socialmedia %}
-          <li><a href="{{ social_item.url }}" target="_blank" class="{{ social_item.class }}" title="{{ social_item.title }}"></a></li>
-        {% endfor %}
+      <section id="subfooter-right" class="small-12 medium-6 columns" style="text-align:right">
+        <ul class="inline-list social-icons" style="justify-content:flex-end">
+          {% for social_item in site.data.socialmedia %}
+            <li><a href="{{ social_item.url }}" target="_blank" rel="noopener" class="{{ social_item.class }}" title="{{ social_item.title }}"></a></li>
+          {% endfor %}
         </ul>
       </section>
     </nav>
   </div><!-- /#subfooter -->
+
 </footer>

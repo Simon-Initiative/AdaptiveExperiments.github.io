@@ -75,62 +75,63 @@ permalink: "/overview/"
 <div class="pub-container">
   <div class="pub-grid">
 
+    {% comment %} JOURNALS {% endcomment %}
     <div class="pub-card">
       <div class="pub-title">Journals</div>
       <ul class="pub-list">
+        {% assign journals = site.data.publications | where: "type", "Journal" | sort: "year" | reverse %}
+        {% for pub in journals %}
         <li>
           <div class="pub-meta">
-            Hulleman, C. S., & Harackiewicz, J. M. (2009). Promoting interest and performance in high school science classes. Science, 326(5958), 1410–1412.
-            <div><a class="pub-link" href="https://doi.org/10.1126/science.1177067" target="_blank" rel="noopener noreferrer">Read DOI</a></div>
+            {{ pub.author }}. ({{ pub.year }}). {{ pub.title }}. {{ pub.journal }}{% if pub.volume %}, {{ pub.volume }}{% endif %}{% if pub.issue %}({{ pub.issue }}){% endif %}{% if pub.pages %}, {{ pub.pages }}{% endif %}.
+            {% if pub.url or pub.doi %}
+            <div><a class="pub-link" href="{% if pub.url %}{{ pub.url }}{% else %}https://doi.org/{{ pub.doi }}{% endif %}" target="_blank" rel="noopener noreferrer">{% if pub.doi %}Read DOI{% else %}Read More{% endif %}</a></div>
+            {% endif %}
           </div>
         </li>
-
-        <li>
-          <div class="pub-meta">
-            [Add journal article title here]. Author(s). (Year). Journal name, volume(issue), pages.
-            <div><a class="pub-link" href="#" target="_blank" rel="noopener noreferrer">Link</a></div>
-          </div>
-        </li>
+        {% endfor %}
       </ul>
     </div>
 
+    {% comment %} CONFERENCES {% endcomment %}
     <div class="pub-card">
       <div class="pub-title">Conferences</div>
       <ul class="pub-list">
+        {% assign conferences = site.data.publications | where: "type", "Conference" | sort: "year" | reverse %}
+        {% for pub in conferences %}
         <li>
           <div class="pub-meta">
-            [Add conference paper title here]. Author(s). (Year). In Proceedings of [Conference Name].
-            <div><a class="pub-link" href="#" target="_blank" rel="noopener noreferrer">Proceedings / PDF</a></div>
+            {{ pub.author }}. ({{ pub.year }}). {{ pub.title }}. In Proceedings of {{ pub.booktitle }}.{% if pub.address %} {{ pub.address }}.{% endif %}
+            {% if pub.url or pub.doi %}
+            <div><a class="pub-link" href="{% if pub.url %}{{ pub.url }}{% else %}https://doi.org/{{ pub.doi }}{% endif %}" target="_blank" rel="noopener noreferrer">{% if pub.doi %}Read DOI{% else %}Read Proceedings{% endif %}</a></div>
+            {% endif %}
           </div>
         </li>
-
-        <li>
-          <div class="pub-meta">
-            [Example placeholder] Improving adaptive allocation for classroom experiments — Author A, Author B. (20XX). In Proceedings of ExampleConf.
-          </div>
-        </li>
+        {% endfor %}
       </ul>
     </div>
 
+    {% comment %} WORKSHOPS & TUTORIALS — Static or from data if needed {% endcomment %}
     <div class="pub-card">
       <div class="pub-title">Workshops & Tutorials</div>
       <ul class="pub-list">
+        {% assign workshops = site.data.publications | where: "type", "Workshop" | sort: "year" | reverse %}
+        {% for pub in workshops %}
         <li>
           <div class="pub-meta">
-            Optimizing Learning: "A Comparative Study of Adaptive Experiments and Randomization in a Software Engineering Course."  
-            Authors: Lawal Badru, Marshall An, John Stamper, Jeffrey Carver. (2025)  
-            Workshop: A/B Testing and Platform-Enabled Learning Engineering — Learning @ Scale 2025, Palermo, Italy.
-            <div><a class="pub-link" href="https://www.researchgate.net/profile/Awwal-Badru/publication/395297168_Optimizing_Learning_A_Comparative_Study_of_Adaptive_Experiments_and_Randomization_in_a_Software_Engineering_Course/links/68badc0ee69154767c2a2c9f/Optimizing-Learning-A-Comparative-Study-of-Adaptive-Experiments-and-Randomization-in-a-Software-Engineering-Course.pdf" target="_blank" rel="noopener noreferrer">Paper (PDF)</a></div>
+            {{ pub.author }}. ({{ pub.year }}). {{ pub.title }}. {{ pub.booktitle }}.{% if pub.address %} {{ pub.address }}.{% endif %}
+            {% if pub.url %}
+            <div><a class="pub-link" href="{{ pub.url }}" target="_blank" rel="noopener noreferrer">Read More</a></div>
+            {% endif %}
           </div>
         </li>
-
+        {% endfor %}
         <li style="margin-top:1rem;">
           <div class="pub-meta">
             EASI Workshops — Workshop materials and hands‑on tutorials for researchers and instructors.
             <div><a class="pub-link" href="{{ '/workshops/' | relative_url }}">Workshop page</a></div>
           </div>
         </li>
-
       </ul>
     </div>
 

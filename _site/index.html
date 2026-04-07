@@ -99,7 +99,7 @@
 
 
 <div id="navigation" class="sticky" style="display:none!important;height:0;overflow:hidden" aria-hidden="true">
-  <nav class="top-bar" role="navigation" data-topbar></nav>
+  <nav class="top-bar" role="navigation"></nav>
 </div>
 
 <!-- ═══ Modern Nav Bar ═══════════════════════════════════════ -->
@@ -330,19 +330,25 @@
 
 
 <script>
-(function () {
+// Wait for full page (including Foundation JS) to initialise before
+// registering our custom hamburger and dropdown handlers.
+document.addEventListener('DOMContentLoaded', function () {
+
   /* ── Hamburger / Mobile Drawer ──────────────────── */
   var btn    = document.getElementById('easiHamburger');
   var drawer = document.getElementById('easi-mobile-drawer');
 
   if (btn && drawer) {
+    // Use capture phase + stopImmediatePropagation so Foundation JS cannot
+    // intercept or cancel this click before we handle it.
     btn.addEventListener('click', function (e) {
-      e.stopPropagation();
+      e.stopImmediatePropagation();
+      e.preventDefault();
       var isOpen = drawer.classList.toggle('open');
       btn.classList.toggle('open', isOpen);
       btn.setAttribute('aria-expanded', String(isOpen));
-      drawer.setAttribute('aria-hidden',  String(!isOpen));
-    });
+      drawer.setAttribute('aria-hidden', String(!isOpen));
+    }, true); /* capture phase */
 
     // Close drawer on outside click
     document.addEventListener('click', function (e) {
@@ -371,17 +377,13 @@
   ddTriggers.forEach(function (trigger) {
     var parentLi = trigger.parentElement;
 
-    // Click on trigger toggles the dropdown
     trigger.addEventListener('click', function (e) {
-      // Only intercept when a dropdown exists on this item
       var dropdown = parentLi.querySelector('.easi-dropdown');
       if (!dropdown) return;
-
-      e.preventDefault(); // stop navigation on the parent link; sub-links still work
+      e.preventDefault();
       var isOpen = parentLi.classList.toggle('dd-open');
       trigger.setAttribute('aria-expanded', String(isOpen));
 
-      // Close all other open dropdowns
       document.querySelectorAll('.easi-nav-links > li.dd-open').forEach(function (li) {
         if (li !== parentLi) {
           li.classList.remove('dd-open');
@@ -414,7 +416,8 @@
       }
     });
   });
-})();
+
+}); /* end DOMContentLoaded */
 </script>
 
 	

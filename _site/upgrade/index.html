@@ -533,7 +533,7 @@
 }
 
 /* node hover/active */
-.d-node { cursor: pointer; transition: filter .22s ease; }
+.d-node { cursor: pointer; transition: filter .22s ease; touch-action: manipulation; }
 .d-node:hover { filter: brightness(1.2) drop-shadow(0 0 10px rgba(120,200,255,.5)); }
 .d-node.active { filter: brightness(1.28) drop-shadow(0 0 18px rgba(120,200,255,.8)); }
 .d-node rect, .d-node ellipse { transition: stroke-width .2s; }
@@ -589,7 +589,7 @@
    MOBILE CARD FLOW  (< 768px)
 ════════════════════════════════════════════════ */
 .arch-flow {
-  display: none; /* hidden on desktop */
+  display: none; /* disabled — SVG is shown on all screen sizes */
   flex-direction: column;
   gap: 0;
 }
@@ -698,16 +698,35 @@
 }
 .how-table tr:hover td { background: rgba(122,184,245,.04); }
 
-/* ── Responsive breakpoints ─────────────────── */
+/* ── Responsive breakpoints ───────────────── */
+/* SVG diagram is shown on ALL screen sizes.
+   On small phones it becomes horizontally scrollable so
+   the interactive diagram stays fully functional. */
 @media (max-width: 767px) {
-  .diag-shell { display: none; }          /* hide SVG on mobile */
-  .arch-flow  { display: flex; }           /* show card flow */
+  .diag-shell {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #diagSvg {
+    min-width: 680px; /* keep diagram readable; user can scroll */
+    height: auto;
+  }
   .arch-intro { font-size: .95rem; }
   .how-table th, .how-table td { padding: 9px 10px; font-size: .82rem; }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  #diagSvg { min-height: 280px; }
+/* Tablets + iPads (640px–1024px): scale SVG to fit */
+@media (min-width: 640px) and (max-width: 1024px) {
+  #diagSvg {
+    min-height: 240px;
+    height: auto;
+  }
+  .diag-toolbar {
+    padding: 10px 14px;
+  }
+  .diag-hint {
+    font-size: .7rem;
+  }
 }
 </style>
 
@@ -729,7 +748,7 @@
 
     <div class="diag-toolbar">
       <span class="diag-toolbar-label">System Architecture Overview</span>
-      <span class="diag-hint">Click a node · hover to highlight</span>
+      <span class="diag-hint">Click / tap a node · hover to highlight</span>
     </div>
 
     <svg id="diagSvg" viewBox="-10 0 1160 490" preserveAspectRatio="xMidYMid meet" aria-label="EASI Architecture Diagram">

@@ -1,0 +1,595 @@
+/*
+ * EASI Modern Theme Override
+ * Injected after styles_feeling_responsive.css
+ * Design: Light body · Dark nav + footer · Cyan accent
+ */
+
+/* ── Google Font ──────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ── Design Tokens ────────────────────────────── */
+:root {
+  --easi-navy:       #0a1628;
+  --easi-navy-mid:   #112240;
+  --easi-navy-light: #1e3a5f;
+  --easi-cyan:       #22d3ee;
+  --easi-cyan-dim:   #0e7490;
+  --easi-accent:     #38bdf8;
+  --easi-green:      #4ade80;
+
+  --body-bg:         #f8fafc;
+  --body-text:       #1e293b;
+  --body-muted:      #64748b;
+  --border-subtle:   rgba(0,0,0,.07);
+
+  --nav-height:      72px;
+  --nav-bg:          rgba(10,22,40,.95);
+  --nav-blur:        blur(18px);
+  --nav-border:      rgba(34,211,238,.12);
+
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+
+  --shadow-sm:  0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-md:  0 4px 16px rgba(0,0,0,.10), 0 2px 6px rgba(0,0,0,.06);
+  --shadow-lg:  0 12px 40px rgba(0,0,0,.14), 0 4px 12px rgba(0,0,0,.08);
+  --shadow-xl:  0 24px 64px rgba(0,0,0,.20);
+
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Base ─────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', 'Lato', sans-serif !important;
+  background: var(--body-bg) !important;
+  color: var(--body-text) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Push page content below fixed nav */
+body > div:not(#navigation):first-of-type,
+#masthead-no-image-header,
+#masthead,
+#masthead-with-text,
+#masthead-with-pattern,
+#masthead-with-background-color {
+  margin-top: 0;
+}
+
+/* ── Scrollbar ────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--body-bg); }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--easi-cyan-dim); }
+
+/* ── Typography ───────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif !important;
+  color: var(--body-text);
+  letter-spacing: -0.015em;
+}
+
+h1 { font-weight: 800; }
+h2 { font-weight: 700; }
+h3, h4 { font-weight: 600; }
+
+p, li, td {
+  font-family: 'Inter', sans-serif !important;
+  line-height: 1.75;
+  color: var(--body-text);
+}
+
+a {
+  color: var(--easi-cyan-dim);
+  transition: color var(--transition);
+}
+a:hover { color: var(--easi-cyan); }
+
+/* ── ═══════════════════════════════════════════
+   MODERN NAV BAR
+═══════════════════════════════════════════ */
+
+/* Hide original Foundation nav completely */
+#navigation { display: none !important; }
+
+/* Modern nav */
+#easi-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9000;
+  height: var(--nav-height);
+  background: var(--nav-bg);
+  backdrop-filter: var(--nav-blur);
+  -webkit-backdrop-filter: var(--nav-blur);
+  border-bottom: 1px solid var(--nav-border);
+  box-shadow: 0 4px 24px rgba(0,0,0,.3);
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(16px, 4vw, 40px);
+}
+
+.easi-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Logo / wordmark */
+.easi-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none !important;
+  flex-shrink: 0;
+}
+.easi-nav-logo-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--easi-cyan) 0%, var(--easi-accent) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--easi-navy);
+  box-shadow: 0 0 16px rgba(34,211,238,.35);
+  letter-spacing: -1px;
+  flex-shrink: 0;
+}
+.easi-nav-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.easi-nav-logo-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #f0f9ff;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.easi-nav-logo-sub {
+  font-size: .75rem;
+  font-weight: 500;
+  color: var(--easi-cyan);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .9;
+}
+
+/* Desktop links */
+.easi-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.easi-nav-links > li {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.easi-nav-links > li > a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: .875rem;
+  font-weight: 500;
+  color: rgba(240,249,255,.82) !important;
+  text-decoration: none !important;
+  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+.easi-nav-links > li > a:hover {
+  background: rgba(34,211,238,.1);
+  color: #f0f9ff !important;
+}
+.easi-nav-links > li.active > a,
+.easi-nav-links > li > a[aria-current="page"] {
+  color: var(--easi-cyan) !important;
+  background: rgba(34,211,238,.1);
+}
+.easi-nav-links > li.active > a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 14px; right: 14px;
+  height: 2px;
+  background: var(--easi-cyan);
+  border-radius: 99px;
+}
+
+/* Dropdown chevron */
+.easi-nav-links > li > a .nav-chevron {
+  font-size: .65rem;
+  opacity: .6;
+  transition: transform var(--transition);
+}
+.easi-nav-links > li:hover > a .nav-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* Dropdown panel */
+.easi-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 2px); /* tighter gap so hover doesn't break */
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 200px;
+  background: rgba(10,22,40,.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(34,211,238,.15);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  z-index: 9100;
+  /* invisible bridge so mouse moving from link to dropdown doesn't
+     trigger a mouseleave on the parent <li> */
+  padding-top: 10px;
+  margin-top: -8px;
+}
+.easi-nav-links > li:hover .easi-dropdown,
+.easi-nav-links > li:focus-within .easi-dropdown,
+.easi-nav-links > li.dd-open .easi-dropdown {
+  display: block;
+  animation: dropFadeIn .15s ease;
+}
+@keyframes dropFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.easi-dropdown li { margin: 0; padding: 0; }
+.easi-dropdown a {
+  display: block;
+  padding: 10px 14px;
+  font-size: .85rem;
+  font-weight: 500;
+  color: rgba(240,249,255,.75) !important;
+  text-decoration: none !important;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+}
+.easi-dropdown a:hover {
+  background: rgba(34,211,238,.12);
+  color: #f0f9ff !important;
+}
+
+/* CTA button */
+.easi-nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.easi-nav-btn {
+  padding: 8px 18px;
+  background: linear-gradient(135deg, var(--easi-cyan), var(--easi-accent));
+  color: var(--easi-navy) !important;
+  font-size: .82rem;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none !important;
+  transition: opacity var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 0 16px rgba(34,211,238,.3);
+  white-space: nowrap;
+}
+.easi-nav-btn:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px rgba(34,211,238,.45);
+  color: var(--easi-navy) !important;
+}
+
+/* Hamburger */
+.easi-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: rgba(34,211,238,.1);
+  border: 1px solid rgba(34,211,238,.2);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--transition);
+}
+.easi-hamburger:hover { background: rgba(34,211,238,.18); }
+.easi-hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--easi-cyan);
+  border-radius: 99px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.easi-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.easi-hamburger.open span:nth-child(2) { opacity: 0; }
+.easi-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile drawer */
+#easi-mobile-drawer {
+  display: none;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0; right: 0;
+  background: rgba(10,22,40,.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(34,211,238,.12);
+  z-index: 8999;
+  padding: 12px 16px 20px;
+  animation: drawerSlideDown .22s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+#easi-mobile-drawer.open { display: block; }
+@keyframes drawerSlideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.easi-mobile-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.easi-mobile-links li { margin: 2px 0; }
+.easi-mobile-links a {
+  display: block;
+  padding: 12px 16px;
+  font-size: .95rem;
+  font-weight: 500;
+  color: rgba(240,249,255,.8) !important;
+  text-decoration: none !important;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+}
+.easi-mobile-links a:hover {
+  background: rgba(34,211,238,.1);
+  color: #f0f9ff !important;
+}
+.easi-mobile-links .mobile-sub a {
+  padding-left: 28px;
+  font-size: .88rem;
+  color: rgba(240,249,255,.55) !important;
+}
+.easi-mobile-links .mobile-sub a:hover { color: var(--easi-cyan) !important; }
+.easi-mobile-divider {
+  height: 1px;
+  background: rgba(255,255,255,.06);
+  margin: 6px 0;
+}
+.easi-mobile-cta {
+  margin-top: 12px;
+  padding: 0 4px;
+}
+.easi-mobile-cta a {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  background: linear-gradient(135deg, var(--easi-cyan), var(--easi-accent));
+  color: var(--easi-navy) !important;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none !important;
+}
+
+/* ── Responsive nav ────────────────────────────── */
+@media (max-width: 767px) {
+  /* Hide desktop links and GitHub pill — keep .easi-nav-cta so hamburger stays visible */
+  .easi-nav-links { display: none; }
+  .easi-nav-btn   { display: none; }   /* hide GitHub button on mobile */
+  .easi-hamburger { display: flex; }   /* show hamburger */
+}
+
+/* ── ═══════════════════════════════════════════
+   MASTHEAD — slim it down; nav replaces it
+═══════════════════════════════════════════ */
+
+/* Push all page content below fixed nav */
+#masthead-no-image-header {
+  height: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+}
+
+/* Pages WITH a hero image: just add a top offset so image isn't under nav */
+#masthead {
+  margin-top: var(--nav-height) !important;
+}
+
+/*
+ * GLOBAL body top padding — pushes ALL page content below the 64px fixed nav.
+ * Applied here rather than per-layout so every page type (page, page-fullwidth,
+ * frontpage, post, video, blog) gets the offset automatically.
+ */
+html {
+  scroll-padding-top: calc(var(--nav-height) + 16px);
+}
+
+body {
+  padding-top: var(--nav-height) !important;
+}
+
+/* Remove the old per-layout margin overrides (now redundant) */
+body.page .row.t30:first-of-type,
+body.page-fullwidth .row.t30:first-of-type {
+  margin-top: 32px !important;
+}
+
+/* Ensure page h1 isn't clipped when navigating via anchor */
+body.post .row:first-of-type,
+body.page article,
+body.page-fullwidth article {
+  scroll-margin-top: calc(var(--nav-height) + 16px);
+}
+
+/* ── ═══════════════════════════════════════════
+   PAGE CONTENT POLISH
+═══════════════════════════════════════════ */
+
+/* Articles */
+article {
+  border-radius: var(--radius-lg);
+}
+
+/* Teaser / subheadline */
+.teaser {
+  color: var(--body-muted) !important;
+  font-size: 1.1rem !important;
+  line-height: 1.65 !important;
+}
+
+/* Page h1 */
+article h1 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: .4em;
+  background: linear-gradient(135deg, var(--easi-navy) 40%, var(--easi-cyan-dim));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Tables */
+table {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Code */
+pre, code {
+  border-radius: var(--radius-sm);
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Blockquote (redesign) */
+blockquote {
+  border-left: 3px solid var(--easi-cyan) !important;
+  background: rgba(34,211,238,.04);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 16px 20px !important;
+  margin: 1.5rem 0 !important;
+  color: var(--body-muted) !important;
+  font-style: normal !important;
+}
+
+/* ── ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+
+/* Back-to-top arrow */
+#up-to-top {
+  background: var(--body-bg);
+  padding: 40px 0 0 !important;
+}
+#up-to-top a {
+  color: #94a3b8 !important;
+  font-size: 1.2rem;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+}
+#up-to-top a:hover {
+  background: rgba(34,211,238,.1);
+  color: var(--easi-cyan) !important;
+}
+
+#footer-content {
+  background: var(--easi-navy) !important;
+}
+
+#footer {
+  background: var(--easi-navy) !important;
+  border-top: 1px solid rgba(34,211,238,.12) !important;
+  padding: 48px 24px 32px !important;
+}
+
+#footer h4, #footer h5 {
+  color: var(--easi-cyan) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: .72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+}
+
+#footer p, #footer li {
+  color: rgba(240,249,255,.55) !important;
+  font-size: .87rem !important;
+  line-height: 1.7 !important;
+}
+
+#footer a {
+  color: rgba(56,189,248,.8) !important;
+  transition: color var(--transition);
+}
+#footer a:hover { color: var(--easi-cyan) !important; }
+
+#footer ul.no-bullet li { padding: 3px 0; }
+
+#subfooter {
+  background: #060e1a !important;
+  border-top: 1px solid rgba(255,255,255,.05) !important;
+  padding: 20px 24px !important;
+}
+
+#subfooter .credits a,
+#subfooter .credits p {
+  color: rgba(255,255,255,.3) !important;
+  font-size: .78rem;
+}
+#subfooter .credits a:hover { color: rgba(34,211,238,.7) !important; }
+
+/* Footer NSF logo sizing */
+#footer img[src*="nsf"] {
+  width: 180px !important;
+  height: auto;
+  opacity: .92;
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* ── ═══════════════════════════════════════════
+   GLOBAL UTILITIES
+═══════════════════════════════════════════ */
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* Smooth appearance for page content */
+.row { animation: pageFadeIn .4s ease; }
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

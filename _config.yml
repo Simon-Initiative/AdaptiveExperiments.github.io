@@ -32,7 +32,7 @@ author: Carver
 # This URL is the main address for absolute links. Don't include a slash at the end.
 #
 url: 'https://adaptiveexperiments.github.io'
-baseurl:'https://adaptiveexperiments.github.io'
+baseurl:'https://adaptiveexperiments.github.io',
 
 
 # This is for the editing function in _/includes/improve_content

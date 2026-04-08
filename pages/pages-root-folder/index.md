@@ -4,7 +4,7 @@ header:
   #image_fullwidth: gallery-example-1.jpg
 widget1:
   title: "Adaptive Experiments"
-  url: "https://www.upgradeplatform.org/"
+  url: /upgrade
   image: upgrade_dash.png
   text: 'Turn uncertainty into actionable learning — faster, with fewer students. Adaptive Experiments builds Experiments‑As‑a‑Service Infrastructure (EASI) to make real‑world educational field experiments simple, reproducible, and effective. Lower the barrier for teachers and researchers to test instructional designs, discover what improves learning, and deploy improvements at scale.'
 widget2:
@@ -60,9 +60,9 @@ homepage: true
         <li>C–Adaptation: Enable research into adaptive experimentation by providing a testbed for algorithms that dynamically analyze data from experiments, to enhance learning faster with less participants</li>
       </ul>
       <p>
-        <a href="{{ '/easi/' | relative_url }}" class="btn" style="margin-right:0.5rem;">Why EASI?</a>
-        <a href="https://upgrade-platform.gitbook.io/upgrade-documentation/" class="btn" style="margin-right:0.5rem;" target="_blank" rel="noopener noreferrer">Run your Experiment</a>
-        <a href="https://www.upgradeplatform.org/" class="btn" target="_blank" rel="noopener noreferrer">View on UpGrade</a>
+        <a href="{{ '/easi/' | relative_url }}" class="btn" style="margin-right:0.5rem;">Demo?</a>
+        <a href="https://upgrade-demo.carnegielearning.com/login" class="btn" style="margin-right:0.5rem;" target="_blank" rel="noopener noreferrer">Run your Experiment</a>
+        <a href="https://upgrade-platform.gitbook.io/upgrade-documentation/" class="btn" target="_blank" rel="noopener noreferrer">View on UpGrade</a>
       </p>
     </div>
   </div>

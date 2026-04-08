@@ -10,13 +10,6 @@
   address: "New York, NY, USA"
   keywords: "contextual Thompson Sampling, Adaptive Experiment"
 
-- type: Journal
-  author: "Hulleman, C. S., & Harackiewicz, J. M."
-  year: 2009
-  title: "Promoting interest and performance in high school science classes"
-  journal: "Science, 326(5958), 1410–1412"
-  doi: "10.1126/science.1177067"
-  url: "https://doi.org/10.1126/science.1177067"
 
 - type: Conference
   author: "Badru, Lawal and An, M. and Stamper, J. and Carver, J."

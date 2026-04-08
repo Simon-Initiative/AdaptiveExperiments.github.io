@@ -60,8 +60,8 @@ homepage: true
         <li>C–Adaptation: Enable research into adaptive experimentation by providing a testbed for algorithms that dynamically analyze data from experiments, to enhance learning faster with less participants</li>
       </ul>
       <p>
-        <a href="{{ '/easi/' | relative_url }}" class="btn" style="margin-right:0.5rem;">Demo?</a>
-        <a href="https://upgrade-demo.carnegielearning.com/login" class="btn" style="margin-right:0.5rem;" target="_blank" rel="noopener noreferrer">Run your Experiment</a>
+        <a href="{{ '/easi/' | relative_url }}" class="btn" style="margin-right:0.5rem;">Benefit of EASI</a>
+        <a href="https://upgrade-demo.carnegielearning.com/login" class="btn" style="margin-right:0.5rem;" target="_blank" rel="noopener noreferrer">Demo?</a>
         <a href="https://upgrade-platform.gitbook.io/upgrade-documentation/" class="btn" target="_blank" rel="noopener noreferrer">View on UpGrade</a>
       </p>
     </div>

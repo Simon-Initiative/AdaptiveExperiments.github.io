@@ -425,7 +425,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 }); /* end DOMContentLoaded */
 </script>
-
 		
 <div id="masthead-no-image-header">
     <div class="row">

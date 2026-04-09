@@ -68,15 +68,16 @@ function FastClick(a,b){"use strict";function c(a,b){return function(){return a.
     'foundation-data-attribute-namespace']);
 
   // Enable FastClick if present
+// Enable non-passive touch event listeners for modern browser compatibility
 
-  $(function() {
-    if (typeof FastClick !== 'undefined') {
-      // Don't attach to body if undefined
-      if (typeof document.body !== 'undefined') {
-        FastClick.attach(document.body);
-      }
-    }
-  });
+$(function() {
+  if (typeof document.body !== 'undefined') {
+    // Configure event listeners as non-passive to allow preventDefault()
+    document.addEventListener('touchstart', function(){}, {passive: false});
+    document.addEventListener('touchmove', function(){}, {passive: false});
+    document.addEventListener('touchend', function(){}, {passive: false});
+  }
+});
 
   // private Fast Selector wrapper,
   // returns jQuery object. Only use where

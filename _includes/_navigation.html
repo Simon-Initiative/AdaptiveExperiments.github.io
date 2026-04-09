@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Close drawer when a link inside it is clicked
-    drawer.querySelectorAll('a').forEach(function (a) {
+    Array.prototype.forEach.call(drawer.querySelectorAll('a'), function (a) {
       a.addEventListener('click', function () {
         drawer.classList.remove('open');
         btn.classList.remove('open');
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ── Desktop Dropdown — click-to-open ──────────── */
   var ddTriggers = document.querySelectorAll('.easi-nav-links > li > a[aria-haspopup="true"]');
 
-  ddTriggers.forEach(function (trigger) {
+  Array.prototype.forEach.call(ddTriggers, function (trigger) {
     var parentLi = trigger.parentElement;
 
     trigger.addEventListener('click', function (e) {
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var isOpen = parentLi.classList.toggle('dd-open');
       trigger.setAttribute('aria-expanded', String(isOpen));
 
-      document.querySelectorAll('.easi-nav-links > li.dd-open').forEach(function (li) {
+      Array.prototype.forEach.call(document.querySelectorAll('.easi-nav-links > li.dd-open'), function (li) {
         if (li !== parentLi) {
           li.classList.remove('dd-open');
           var t = li.querySelector('a[aria-haspopup]');
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Close dropdown when a sub-link is clicked
-  document.querySelectorAll('.easi-dropdown a').forEach(function (a) {
+  Array.prototype.forEach.call(document.querySelectorAll('.easi-dropdown a'), function (a) {
     a.addEventListener('click', function () {
       var parentLi = a.closest('.easi-nav-links > li');
       if (parentLi) {

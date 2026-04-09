@@ -236,14 +236,29 @@ function FastClick(a,b){"use strict";function c(a,b){return function(){return a.
    * Licensed under the MIT license.
    */
 
-  (function($) {
+  (function(){
+    if (typeof document.body === 'undefined') return;
 
-  // requestAnimationFrame polyfill adapted from Erik Möller
-  // fixes from Paul Irish and Tino Zijdel
-  // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-  // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+    // Feature-detect support for passive event listener options to avoid
+    // throwing in older browsers. If supported, register non-passive
+    // touch listeners so `preventDefault()` works on touch events.
+    var supportsPassive = false;
+    try {
+      var opts = Object.defineProperty({}, 'passive', { get: function() { supportsPassive = true; } });
+      window.addEventListener('testPassive', null, opts);
+      window.removeEventListener('testPassive', null, opts);
+    } catch (e) {}
 
-  var animating,
+    var listenerOpts = supportsPassive ? { passive: false } : false;
+    try {
+      document.addEventListener('touchstart', function() {}, listenerOpts);
+      document.addEventListener('touchmove', function() {}, listenerOpts);
+      document.addEventListener('touchend', function() {}, listenerOpts);
+    } catch (e) {
+      // Some environments may still throw; fail silently — this shouldn't
+      // block the rest of the script.
+    }
+  })();
       lastTime = 0,
       vendors = ['webkit', 'moz'],
       requestAnimationFrame = window.requestAnimationFrame,

@@ -6,10 +6,10 @@
   url: "#"
   side: left
   dropdown:
-   - title: "Team"
-     url: "/team/"
-   - title: "Research Support"
-     url: "/support/"  
+  - title: "Team"
+    url: "/team/"
+  - title: "Research Support"
+    url: "/support/"  
 
 - title: "Partners"
   url: "upgrade"

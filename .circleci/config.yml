@@ -46,7 +46,7 @@ build_jekyll: &build_jekyll
 jobs:
   build-site:
     docker:
-      - image: cimg/ruby:3.1
+      - image: cimg/ruby:3.2
     working_directory: ~/repo
     environment:
       - JEKYLL_ENV: production
@@ -56,9 +56,16 @@ jobs:
       - run:
           name: Checkout code
           command: |
-            git clone https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git .
-            git fetch --force origin "+refs/pull/*:refs/remotes/origin/pull/*"
-            git checkout ${CIRCLE_SHA1}
+            if [ -n "$CIRCLE_PR_USERNAME" ] && [ -n "$CIRCLE_PR_REPONAME" ]; then
+              # For PRs from forks
+              git clone https://github.com/${CIRCLE_PR_USERNAME}/${CIRCLE_PR_REPONAME}.git .
+              git checkout ${CIRCLE_SHA1}
+            else
+              # For pushes or PRs within the same repo
+              git clone https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git .
+              git fetch --force origin "+refs/pull/*:refs/remotes/origin/pull/*"
+              git checkout ${CIRCLE_SHA1}
+            fi
       - restore_cache:
           keys:
           - v1-dependencies

@@ -22,7 +22,7 @@ install_python_3: &install_python_3
   command: |
       ls $HOME
       if [ ! -d "/home/circleci/conda" ]; then
-          wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+          wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
           /bin/bash Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/conda
           export PATH=$HOME/conda/bin:$PATH
        else
@@ -46,14 +46,26 @@ build_jekyll: &build_jekyll
 jobs:
   build-site:
     docker:
-      - image: cimg/ruby:3.1
+      - image: cimg/ruby:3.2
     working_directory: ~/repo
     environment:
       - JEKYLL_ENV: production
       - NOKOGIRI_USE_SYSTEM_LIBRARIES: true
       - BUNDLE_PATH: ~/repo/vendor/bundle
     steps:
-      - checkout
+      - run:
+          name: Checkout code
+          command: |
+            if [ -n "$CIRCLE_PR_USERNAME" ] && [ -n "$CIRCLE_PR_REPONAME" ]; then
+              # For PRs from forks
+              git clone https://github.com/${CIRCLE_PR_USERNAME}/${CIRCLE_PR_REPONAME}.git .
+              git checkout ${CIRCLE_SHA1}
+            else
+              # For pushes or PRs within the same repo
+              git clone https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git .
+              git fetch --force origin "+refs/pull/*:refs/remotes/origin/pull/*"
+              git checkout ${CIRCLE_SHA1}
+            fi
       - restore_cache:
           keys:
           - v1-dependencies

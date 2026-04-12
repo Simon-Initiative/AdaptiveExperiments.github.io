@@ -12,17 +12,8 @@
     url: "/support/"  
 
 - title: "Partners"
-  url: "upgrade"
+  url: "/upgrade/"
   side: left
-  dropdown:
- #   - title: "Mathia"
- #     url: 'https://www.carnegielearning.com/solutions/math/mathia'
- #   - title: "UpGrade"
- #     url: 'https://www.upgradeplatform.org'
- #   - title: "OLI"
-#     url: 'https://oli.cmu.edu'  
-#    - title: "MOOClet"
-#      url: "/mooclet/"
 
 - title: Publications
   url: "/overview/"

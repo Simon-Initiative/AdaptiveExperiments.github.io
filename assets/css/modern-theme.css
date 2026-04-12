@@ -331,17 +331,15 @@ a:hover { color: var(--easi-cyan); }
   border-color: rgba(34,211,238,.3);
   box-shadow: 0 6px 16px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.1);
 }
-.easi-hamburger span {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: var(--easi-cyan);
-  border-radius: 99px;
+.easi-hamburger .hamburger-icon path {
+  stroke: var(--easi-cyan);
+  stroke-width: 2;
+  fill: none;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
   transform-origin: center;
 }
-.easi-hamburger.open span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
-.easi-hamburger.open span:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }
+.easi-hamburger.open .hamburger-icon path:nth-child(1) { transform: translateY(4px) rotate(45deg); }
+.easi-hamburger.open .hamburger-icon path:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }
 
 /* Mobile drawer */
 #easi-mobile-drawer {

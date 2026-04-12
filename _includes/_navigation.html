@@ -93,6 +93,7 @@
 
 <!-- ═══ Mobile Drawer ════════════════════════════════════════ -->
 <nav id="easi-mobile-drawer" aria-label="Mobile navigation" aria-hidden="true">
+  <p style="color: red; font-size: 12px;">Data size: {{ site.data.navigation | size }}</p>
   <ul class="easi-mobile-links" role="list">
     {% for link in site.data.navigation %}
       {% if link.side == 'left' %}

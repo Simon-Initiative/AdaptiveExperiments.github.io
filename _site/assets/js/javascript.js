@@ -238,28 +238,7 @@ $(function() {
    */
 
   (function(){
-    if (typeof document.body === 'undefined') return;
-
-    // Feature-detect support for passive event listener options to avoid
-    // throwing in older browsers. If supported, register non-passive
-    // touch listeners so `preventDefault()` works on touch events.
-    var supportsPassive = false;
-    try {
-      var opts = Object.defineProperty({}, 'passive', { get: function() { supportsPassive = true; } });
-      window.addEventListener('testPassive', null, opts);
-      window.removeEventListener('testPassive', null, opts);
-    } catch (e) {}
-
-    var listenerOpts = supportsPassive ? { passive: false } : false;
-    try {
-      document.addEventListener('touchstart', function() {}, listenerOpts);
-      document.addEventListener('touchmove', function() {}, listenerOpts);
-      document.addEventListener('touchend', function() {}, listenerOpts);
-    } catch (e) {
-      // Some environments may still throw; fail silently — this shouldn't
-      // block the rest of the script.
-    }
-  })();
+    var animating,
       lastTime = 0,
       vendors = ['webkit', 'moz'],
       requestAnimationFrame = window.requestAnimationFrame,

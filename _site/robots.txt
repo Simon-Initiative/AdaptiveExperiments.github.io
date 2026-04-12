@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://localhost:4000/ADAPTIVEEXPERIMENTS/sitemap.xml
+Sitemap: https://adaptiveexperiments.github.io/sitemap.xml

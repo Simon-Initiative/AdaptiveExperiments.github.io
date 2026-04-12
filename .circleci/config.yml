@@ -57,6 +57,7 @@ jobs:
           name: Checkout code
           command: |
             git clone https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git .
+            git fetch --force origin "+refs/pull/*:refs/remotes/origin/pull/*"
             git checkout ${CIRCLE_SHA1}
       - restore_cache:
           keys:

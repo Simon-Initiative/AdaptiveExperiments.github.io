@@ -340,8 +340,6 @@ a:hover { color: var(--easi-cyan); }
 }
 .easi-hamburger.open .hamburger-icon path:nth-child(1) { transform: translateY(4px) rotate(45deg); }
 .easi-hamburger.open .hamburger-icon path:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }
-
-/* Mobile drawer */
 #easi-mobile-drawer {
   display: none;
   position: fixed;

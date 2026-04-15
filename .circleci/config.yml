@@ -22,9 +22,8 @@ jobs:
       - run:
           name: Checkout code
           command: |
-            # Clone the branch directly so CIRCLE_SHA1 is always reachable
-            git clone --branch ${CIRCLE_BRANCH} \
-              https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git .
+            git clone https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git .
+            git fetch --force origin "+refs/pull/*:refs/remotes/origin/pull/*"
             git checkout ${CIRCLE_SHA1}
 
       - restore_cache:

@@ -7,7 +7,9 @@ workflows:
       - build-site:
           filters:
             branches:
-              only: dev   # Only build previews on dev branch pushes/PRs
+              only:
+                - dev
+                - gh-pages   # Build previews on dev branch pushes/PRs and gh-pages
 
 jobs:
   build-site:
@@ -19,12 +21,7 @@ jobs:
       - NOKOGIRI_USE_SYSTEM_LIBRARIES: true
       - BUNDLE_PATH: ~/repo/vendor/bundle
     steps:
-      - run:
-          name: Checkout code
-          command: |
-            git clone https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git .
-            git fetch --force origin "+refs/pull/*:refs/remotes/origin/pull/*"
-            git checkout ${CIRCLE_SHA1}
+      - checkout
 
       - restore_cache:
           keys:

@@ -152,7 +152,7 @@
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       drawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
       
-      // Toggle hamburger lines
+      /* Toggle hamburger lines */
       var spans = btn.querySelectorAll('span');
       if (isOpen) {
         spans[0].style.transform = 'translateY(6px) rotate(45deg)';
@@ -165,7 +165,7 @@
       }
     });
     
-    // Close drawer on link click
+    /* Close drawer on link click */
     var links = drawer.querySelectorAll('a');
     for (var i = 0; i < links.length; i++) {
       links[i].addEventListener('click', function() {
@@ -179,7 +179,7 @@
       });
     }
     
-    // Close drawer on outside click
+    /* Close drawer on outside click */
     document.addEventListener('click', function(e) {
       if (!btn.contains(e.target) && !drawer.contains(e.target) && drawer.classList.contains('open')) {
         drawer.classList.remove('open');
@@ -204,7 +204,7 @@
           var isOpen = parentLi.classList.toggle('dd-open');
           trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
           
-          // Close other dropdowns
+          /* Close other dropdowns */
           var others = document.querySelectorAll('.easi-nav-links > li.dd-open');
           for (var j = 0; j < others.length; j++) {
             if (others[j] !== parentLi) {

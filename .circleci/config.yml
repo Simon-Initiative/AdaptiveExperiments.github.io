@@ -2,47 +2,15 @@ version: 2.1
 
 workflows:
   version: 2
-
-  # The build workflow will build a preview for the site, intended for PRs
-  # don't need to build gh-pages only other branches
   build:
     jobs:
       - build-site:
           filters:
             branches:
-              ignore: gh-pages
+              only:
+                - dev
+                - gh-pages   # Build previews on dev branch pushes/PRs and gh-pages
 
-install: &install
-  name: install dependencies for build
-  command: |
-     $HOME/conda/bin/pip install -r ~/repo/.circleci/requirements.txt
-
-install_python_3: &install_python_3
-  name: install Python 3.5 dependencies
-  command: |
-      ls $HOME
-      if [ ! -d "/home/circleci/conda" ]; then
-          wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-          /bin/bash Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/conda
-          export PATH=$HOME/conda/bin:$PATH
-       else
-           echo "Miniconda 3 is already installed, continuing to build."
-       fi
-build_jekyll: &build_jekyll
-    name: Jekyll Build
-    command: |
-        if [ -z "$CIRCLECI_TRIGGER" ]; then
-            echo "Building EASI Site for Preview"
-            cp ~/repo/.circleci/circle_urls.sh ~/repo/circle_urls.sh
-            cd ~/repo
-            chmod u+x circle_urls.sh
-            bash circle_urls.sh
-            cat _config.yml
-            bundle install
-            bundle exec jekyll build
-        else
-            echo "Triggered by something else."
-        fi
 jobs:
   build-site:
     docker:
@@ -53,41 +21,33 @@ jobs:
       - NOKOGIRI_USE_SYSTEM_LIBRARIES: true
       - BUNDLE_PATH: ~/repo/vendor/bundle
     steps:
-      - run:
-          name: Checkout code
-          command: |
-            if [ -n "$CIRCLE_PR_USERNAME" ] && [ -n "$CIRCLE_PR_REPONAME" ]; then
-              # For PRs from forks
-              git clone https://github.com/${CIRCLE_PR_USERNAME}/${CIRCLE_PR_REPONAME}.git .
-              git checkout ${CIRCLE_SHA1}
-            else
-              # For pushes or PRs within the same repo
-              git clone https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git .
-              git fetch --force origin "+refs/pull/*:refs/remotes/origin/pull/*"
-              git checkout ${CIRCLE_SHA1}
-            fi
+      - checkout
+
       - restore_cache:
           keys:
-          - v1-dependencies
-          - rubygems-v1
-      - run: *install_python_3
-      - run: *install
-      - save_cache:
-          paths:
-            - /home/circleci/conda
-          key: v1-dependencies
+            - rubygems-v2-{{ checksum "Gemfile.lock" }}
+            - rubygems-v2-
+
       - run:
           name: Bundle Install
-          command: |
-              cd ~/repo
-              bundle install
-              bundle check || bundle install
+          command: bundle install --jobs=4 --retry=3
+
       - save_cache:
-          key: rubygems-v1
+          key: rubygems-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-     #Removing test job
-      - run: *build_jekyll
+
+      - run:
+          name: Configure preview URLs
+          command: |
+            cp .circleci/circle_urls.sh circle_urls.sh
+            chmod +x circle_urls.sh
+            bash circle_urls.sh
+
+      - run:
+          name: Jekyll Build
+          command: bundle exec jekyll build
+
       - store_artifacts:
           path: ~/repo/_site
           destination: adaptiveexperiments.github.io

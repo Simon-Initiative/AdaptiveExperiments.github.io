@@ -22,11 +22,9 @@ jobs:
       - BUNDLE_PATH: ~/repo/vendor/bundle
     steps:
       - run:
-          name: Checkout code
-          command: |
-            git clone https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git .
-            git fetch --force origin "+refs/pull/*:refs/remotes/origin/pull/*"
-            git checkout ${CIRCLE_SHA1}
+          name: Force HTTPS API instead of SSH for Checkout
+          command: git config --global url."https://github.com/".insteadOf "git@github.com:"
+      - checkout
 
       - restore_cache:
           keys:
